@@ -1,5 +1,4 @@
-.card-hover:hover{
+.card-hover:hover {
   transform: translateY(-5px);
-  transition: ease-in-out;
-  transition_duration: 300ms;
+  transition: transform 300ms ease-in-out;
 }
