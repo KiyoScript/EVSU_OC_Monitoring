@@ -1,5 +1,7 @@
-class Student < ApplicationRecord
-  validates :student_id, :last_name, :given_name, :middle_name, :gender, :program, presence: true
+class Employee < ApplicationRecord
+  belongs_to :department
+
+  validates :employee_id, :last_name, :given_name, :middle_name, :gender, presence: true
   validates :rfid, uniqueness: true
 
   validate :unique_rfid_across_models
@@ -12,10 +14,9 @@ class Student < ApplicationRecord
     ["last_name"]
   end
 
-
   private
   def unique_rfid_across_models
-    if Employee.exists?(rfid: rfid)
+    if Student.exists?(rfid: rfid)
       errors.add(:rfid, 'has already been taken')
     end
   end

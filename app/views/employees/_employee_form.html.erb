@@ -1,0 +1,49 @@
+<div class="mb-3">
+  <label for="employee_id" class="form-label">Employee ID: </label>
+  <%= form.text_field :employee_id, class:'form-control', placeholder: '2021-30428' %>
+</div>
+
+<div class="mb-3">
+  <label for="last_name" class="form-label">Last Name: </label>
+  <%= form.text_field :last_name, class:'form-control', placeholder: 'de Sape' %>
+</div>
+
+<div class="mb-3">
+  <label for="given_name" class="form-label">Given Name: </label>
+  <%= form.text_field :given_name, class:'form-control', placeholder: 'John Lloyd' %>
+</div>
+
+<div class="mb-3">
+  <label for="middle_name" class="form-label">Middle Name: </label>
+  <%= form.text_field :middle_name, class:'form-control', placeholder: 'Dolero' %>
+</div>
+
+<div class="mb-3">
+  <label for="gender" class="form-label">Gender: </label>
+  <%= form.select(:gender, Employee.genders.map { |g| [g.first.humanize, g.first] }, {}, class: "form-select" ) %>
+</div>
+
+<div class="mb-3">
+  <label for="department" class="form-label">Department: </label>
+  <%= form.collection_select(:department_id, @departments, :id, :name, {}, { class: "form-select" }) %>
+</div>
+
+<div class="mb-3">
+  <div class="d-none" id="rfid_input_placeholder">RFID:********</div>
+  <%= form.hidden_field :rfid, id: "rfid_input", value: nil %>
+  <div id="rfid_placeholder" class="position-absolute start-0 top-0 bottom-0 w-100 bg-secondary d-flex align-items-center justify-content-center flex-column bg-opacity-50 d-none"
+        style="backdrop-filter: blur(3px);">
+    <span class="fs-1"><i class="fa-duotone fa-scanner-gun fa-bounce"></i></span>
+    <span class="fs-3 fw-bolder">Scan RFID</span>
+  </div>
+  <button class="btn btn-secondary mt-3" data-action="click->form#scanRfid" data-placeholder-id="rfid_placeholder" data-input-id="rfid_input">
+    <%= action_name == "edit" ? "Update RFID" : "Scan RFID" %>
+  </button>
+  <p></p>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: MyString
+  rfid: MyString
+  last_name: MyString
+  given_name: MyString
+  middle_name: MyString
+  gender: 1
+  department: one
+
+
+two:
+  employee_id: MyString
+  rfid: MyString
+  last_name: MyString
+  given_name: MyString
+  middle_name: MyString
+  gender: 1
+  department: two

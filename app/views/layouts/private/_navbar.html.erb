@@ -10,13 +10,13 @@
             <div class="avatar avatar-md"><img class="avatar-img" src="<%= asset_path('blank.png') %>" alt="user@email.com"></div>
           </a>
           <div class="dropdown-menu dropdown-menu-end pt-0">
-            <div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold rounded-top mb-2 text-center">Account</div>
+            <div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold rounded-top mb-2">Account</div>
             <%= link_to edit_user_registration_path(current_user), class: "dropdown-item"  do %>
-              <i class="fa-duotone fa-cog me-2"></i> <!-- New icon for settings -->
+              <i class="fa-duotone fa-cog me-2"></i>
               Settings
             <% end %>
             <%= link_to destroy_user_session_path, class: 'dropdown-item', method: :delete, data: { turbo_method: :delete } do %>
-              <i class="fa-duotone fa-sign-out-alt me-2"></i> <!-- Icon for logout -->
+              <i class="fa-duotone fa-sign-out-alt me-2"></i>
               Logout
             <% end %>
           </div>

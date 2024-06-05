@@ -1,25 +1,49 @@
 <% if user_signed_in? %>
   <h2 class="p-5 text-primary">Overview</h2>
   <div class="row p-0 px-5 gap-2">
-    <div class="col text-center py-4 border rounded">
-      <i class="fa-duotone fa-building fa-2x text-info"></i>
-      <p class="mt-2">Total Departments</p>
-      <p><%= Department.count %></p>
+    <div class="col">
+      <div class="card text-center border rounded bg-info">
+        <div class="card-body">
+          <%= link_to department_index_path, class:'text-decoration-none' do %>
+            <i class="fa-duotone fa-building fa-2x text-white"></i>
+            <p class="mt-2 text-white">Total Departments</p>
+            <p class="text-white"><%= Department.count %></p>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="col text-center py-4 border rounded">
-      <i class="fa-duotone fa-users fa-2x text-success"></i>
-      <p class="mt-2">Total Employees</p>
-      <p>150</p>
+    <div class="col">
+      <div class="card text-center border rounded bg-success">
+        <div class="card-body">
+          <%= link_to employees_path, class:'text-decoration-none' do %>
+            <i class="fa-duotone fa-users fa-2x text-white"></i>
+            <p class="mt-2 text-white">Total Employees</p>
+            <p class="text-white"><%= Employee.count %></p>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="col text-center py-4 border rounded">
-      <i class="fa-duotone fa-user-graduate fa-2x text-warning"></i>
-      <p class="mt-2">Today's Students</p>
-      <p>1200</p>
+    <div class="col">
+      <div class="card text-center border rounded bg-warning">
+        <div class="card-body">
+          <%= link_to students_path, class:'text-decoration-none' do %>
+            <i class="fa-duotone fa-user-graduate fa-2x text-white"></i>
+            <p class="mt-2 text-white">Today's Students</p>
+            <p class="text-white"><%= Student.count %></p>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="col text-center py-4 border rounded">
-      <i class="fa-duotone fa-check-circle fa-2x text-danger"></i>
-      <p class="mt-2">Today's Attendance</p>
-      <p>1100</p>
+    <div class="col">
+      <div class="card text-center border rounded bg-danger">
+        <div class="card-body">
+          <%= link_to '#', class:'text-decoration-none' do %>
+            <i class="fa-duotone fa-check-circle fa-2x text-white"></i>
+            <p class="mt-2 text-white">Today's Attendance</p>
+            <p class="text-white">1100</p>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>

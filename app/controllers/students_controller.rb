@@ -7,7 +7,7 @@ class StudentsController < ApplicationController
     respond_to do |format|
       format.html {
         @filtered_students = Student.ransack(params[:q])
-        @pagy, @students = pagy(@filtered_students.result.order(created_at: :asc), items: 10)
+        @pagy, @students = pagy(@filtered_students.result.order(created_at: :desc), items: 10)
       }
     end
   end

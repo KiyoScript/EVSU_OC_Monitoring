@@ -1,0 +1,29 @@
+<tr class="text-center">
+  <td><%= employee.employee_id %></td>
+  <td><%= employee.last_name %></td>
+  <td><%= employee.given_name %></td>
+  <td><%= employee.middle_name %></td>
+  <td><%= gender_badge(employee.gender) %></td>
+  <td><%= employee.department.name %></td>
+  <td>
+    <div class="dropdown">
+      <button class="btn btn-dark dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
+        Actions
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton<%= employee.employee_id %>">
+        <li>
+          <%= link_to edit_employee_path(employee), class: "dropdown-item" do %>
+            <i class="fa-duotone fa-edit me-2"></i>
+            Edit
+          <% end %>
+        </li>
+        <li>
+          <%= link_to employee_path(employee), class: "dropdown-item", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove '#{employee.last_name}'?" } do %>
+            <i class="fa-duotone fa-trash-can-xmark me-2"></i>
+            Remove
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </td>
+</tr>
