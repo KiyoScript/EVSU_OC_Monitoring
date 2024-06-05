@@ -15,7 +15,7 @@
           <i class="fa-duotone fa-users me-2"></i>
           Employees
         <% end %>
-        <%= link_to students_path, class: "nav-link #{current_page?(department_index_path) ? '' : 'active'}" do %>
+        <%= link_to students_path, class: "nav-link #{request.path.include?('students') ? 'active' : ''}" do %>
           <i class="fa-duotone fa-user-graduate me-2"></i>
           Students
         <% end %>
@@ -23,7 +23,7 @@
           <i class="fa-duotone fa-calendar-days me-2"></i>
           Attendances
         <% end %>
-        <%= link_to department_index_path, class: "nav-link #{current_page?(department_index_path) ? 'active' : ''}" do %>
+        <%= link_to department_index_path, class: "nav-link #{request.path.include?('departments') ? 'active' : ''}" do %>
           <i class="fa-duotone fa-building me-2"></i>
           Departments
         <% end %>
