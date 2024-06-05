@@ -1,0 +1,15 @@
+<tr class="text-center">
+  <td><%= department.id %></td>
+  <td class='ms-5 ps-5 text-start'><%= department.name %></td>
+  <td>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
+        Action
+      </button>
+      <ul class="dropdown-menu">
+        <%= link_to "Edit", edit_department_path(department), class: "dropdown-item" %>
+        <%= link_to "Delete", department_path(department), class: "dropdown-item text-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove '#{department.name}'?" } %>
+      </ul>
+    </div>
+  </td>
+</tr>

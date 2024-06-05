@@ -9,5 +9,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }, path: '', path_names: { sign_in: 'admin/sign_in'}
   # Defines the root path route ("/")
+
+  resources :department, except: %i[show]
+
   root 'dashboard#index'
 end

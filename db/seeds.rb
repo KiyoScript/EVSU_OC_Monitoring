@@ -12,3 +12,12 @@ User.create(
   email: "johnlloyddesape@gmail.com",
   password: "123123123"
 )
+
+Department.create([
+  { name: 'TEACHER EDUCATION' },
+  { name: 'ENGINEERING' },
+  { name: 'INDUSTRIAL TECHNOLOGY' },
+  { name: 'BUSINESS AND MANAGEMENT' },
+  { name: 'COMPUTER STUDIES' },
+  { name: 'ADMIN. AIDE' }
+])

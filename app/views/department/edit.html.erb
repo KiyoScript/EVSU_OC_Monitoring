@@ -1,0 +1,14 @@
+<%= form_with model: @department,  url: department_path(@department), method: :patch, html: { class: 'row' } do |form| %>
+  <div class="card pt-2">
+    <div class="card-header">
+      <div class="card-title h2">Update Department</div>
+    </div>
+    <div class="card-body">
+      <%= render partial: 'department_form', locals: { form: form, department: @department }%>
+    </div>
+    <div class="card-footer d-flex align-items-center justify-content-between">
+      <%= link_to 'Back', department_index_path, class: 'btn btn-outline-primary'%>
+      <%= form.submit 'Update', class: 'btn btn-primary'%>
+    </div>
+  </div>
+<% end %>

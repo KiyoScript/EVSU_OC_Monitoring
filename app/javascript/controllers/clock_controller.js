@@ -1,4 +1,3 @@
-// app/javascript/controllers/clock_controller.js
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="clock"
