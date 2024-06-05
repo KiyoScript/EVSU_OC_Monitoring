@@ -1,0 +1,52 @@
+<div class="card my-3 shadow-sm">
+  <div class="card-header border-0 p-4 d-flex justify-content-between">
+    <div class="row w-100">
+      <div class="col-2">
+        <%= search_form_for @filtered_students, url: students_path, class: "d-flex alignitems-center position-relative" do |form| %>
+          <%= form.search_field :last_name_cont,
+            class: "form-control form-control-solid",
+            placeholder: "Search Students",
+            autocomplete: "off"
+          %>
+        <% end %>
+      </div>
+      <div class="col-10 text-end">
+        <%= link_to new_student_path, class: 'btn btn-success text-white text-center' do %>
+          <i class="fa-duotone fa-octagon-plus text-white"></i>
+          Student
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover align-middle">
+        <thead>
+          <tr class="text-center">
+            <th scope="col">STUDENT ID</th>
+            <th scope="col">LAST NAME</th>
+            <th scope="col">GIVEN NAME</th>
+            <th scope="col">MIDDLE NAME</th>
+            <th scope="col">PROGRAM</th>
+            <th scope="col">ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @students.present? %>
+            <%= render partial: "students/student", collection: @students, as: :student %>
+          <% else %>
+            <tr class="text-center">
+              <td class="h3 opacity-25 py-4" colspan="7">
+                <i class="fa-duotone fa-file-magnifying-glass me-2"></i>
+                No Students found.
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <%== pagy_bootstrap_nav(@pagy) if @students.present? %>
+  </div>
+</div>

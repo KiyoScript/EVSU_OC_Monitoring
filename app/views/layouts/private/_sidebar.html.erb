@@ -15,7 +15,7 @@
           <i class="fa-duotone fa-users me-2"></i>
           Employees
         <% end %>
-        <%= link_to '#', class: "nav-link" do %>
+        <%= link_to students_path, class: "nav-link #{current_page?(department_index_path) ? '' : 'active'}" do %>
           <i class="fa-duotone fa-user-graduate me-2"></i>
           Students
         <% end %>
