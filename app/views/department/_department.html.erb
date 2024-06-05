@@ -1,14 +1,23 @@
 <tr class="text-center">
-  <td><%= department.id %></td>
-  <td class='ms-5 ps-5 text-start'><%= department.name %></td>
-  <td>
+  <td class="text-start"><%= department.name %></td>
+  <td class="text-end">
     <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
-        Action
+      <button class="btn btn-dark dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
+        Actions
       </button>
-      <ul class="dropdown-menu">
-        <%= link_to "Edit", edit_department_path(department), class: "dropdown-item" %>
-        <%= link_to "Delete", department_path(department), class: "dropdown-item text-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove '#{department.name}'?" } %>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li>
+          <%= link_to edit_department_path(department), class: "dropdown-item" do %>
+            <i class="fa-duotone fa-edit me-2"></i>
+            Edit
+          <% end %>
+        </li>
+        <li>
+          <%= link_to department_path(department), class: "dropdown-item", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove '#{department.name}'?" } do %>
+            <i class="fa-duotone fa-trash-can-xmark me-2"></i>
+            Remove
+          <% end %>
+        </li>
       </ul>
     </div>
   </td>
