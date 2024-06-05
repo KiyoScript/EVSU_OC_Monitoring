@@ -1,0 +1,31 @@
+<div class="w-100 vh-100 row gx-0 align-items-center justify-content-center overflow-hidden position-relative p-4">
+  <img src="<%= asset_path('login-bg.png') %>" class="position-absolute w-100 vh-100" style="filter: blur(3px);opacity: 25%;">
+  <div class="card border-0 shadow col-12 col-lg-4 rounded-0">
+    <div class="card-body p-5">
+        <h1 class="card-title text-center fw-bolder text-primary">Log in</h1>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field mb-4">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-sm" %>
+          </div>
+
+          <div class="field mb-4">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control-sm" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="field mb-4">
+              <%= f.check_box :remember_me, class: "form-check-input", id: "flexCheckDefault" %>
+              <%= f.label :remember_me, class: "form-check-label" %>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= f.submit "Log in", class: "btn btn-primary w-100" %>
+          </div>
+        <% end %>
+        <p class="text-center mt-5">By using this service, you understood and agree to our <a href="#">Terms of Use and Privacy Statement</a></p>
+    </div>
+  </div>
+</div>
