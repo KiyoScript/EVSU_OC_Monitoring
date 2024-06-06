@@ -1,0 +1,62 @@
+<%= turbo_frame_tag :attendance_frame do %>
+  <%= form_with(
+      model: Attendance.new,
+      data: {
+        controller: "attendance",
+        placeholder_id: "rfid_placeholder",
+        input_id: "rfid_input",
+        submit_after_scan: true
+      },
+      class: "card rounded-0 col-12 overflow-hidden col-lg-4 position-relative card-hover",
+      html: { role: "button" } ) do |form| %>
+    <%= form.password_field :rfid, id: "rfid_input", class: "d-none" %>
+  <% end %>
+  <div class="card my-3 border-0 bg-light" id="rfid_placeholder">
+    <div class="card-header border-0 p-4 d-flex justify-content-between">
+      <div class="row w-100">
+        <div class="col-2">
+        <%= search_form_for @filtered_attendances, url: attendances_path, class: "d-flex alignitems-center position-relative", data: { controller: "search-form" } do |form| %>
+          <%= form.search_field :name_cont,
+            class: "form-control form-control-solid",
+            placeholder: "Employee/Student",
+            autocomplete: "off"
+          %>
+          <%= form.submit "Search", class: "ms-2 btn btn-sm btn-primary " %>
+        <% end %>
+
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr class="text-start">
+              <th scope="col">Name</th>
+              <th scope="col">Department/Program</th>
+              <th scope="col">Employee/Student</th>
+              <th scope="col">Time In</th>
+              <th scope="col">Time Out</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if @attendances.present? %>
+              <%= render partial: "attendances/attendance", collection: @attendances, as: :attendance %>
+            <% else %>
+              <tr class="text-center">
+                <td class="h3 opacity-25 py-4" colspan="7">
+                  <i class="fa-duotone fa-file-magnifying-glass me-2"></i>
+                  No attendance yet.
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%== pagy_bootstrap_nav(@pagy) if @pagy.next || @pagy.prev %>
+    </div>
+  </div>
+<% end %>

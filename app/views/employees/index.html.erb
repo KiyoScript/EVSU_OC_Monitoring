@@ -1,5 +1,5 @@
-<div class="card my-3 shadow-sm">
-  <div class="card-header border-0 p-4 d-flex justify-content-between">
+
+<div class="card my-3 shadow-sm">  <div class="card-header border-0 p-4 d-flex justify-content-between">
     <div class="row w-100">
       <div class="col-2">
         <%= search_form_for @filtered_employees, url: employees_path, class: "d-flex alignitems-center position-relative" do |form| %>
@@ -20,7 +20,7 @@
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-striped table-hover align-middle">
+      <table class="table table-hover align-middle">
         <thead>
           <tr class="text-center">
             <th scope="col">Employee ID</th>
@@ -48,6 +48,6 @@
     </div>
   </div>
   <div class="d-flex justify-content-center">
-    <%== pagy_bootstrap_nav(@pagy) if @employees.present? %>
+    <%== pagy_bootstrap_nav(@pagy) if @pagy.next || @pagy.prev %>
   </div>
 </div>

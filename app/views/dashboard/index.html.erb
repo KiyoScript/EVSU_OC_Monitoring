@@ -46,4 +46,14 @@
       </div>
     </div>
   </div>
+<% else %>
+  <%= turbo_frame_tag :attendance_frame, src: attendances_path do %>
+    <center>
+      <div class="d-flex justify-content-center p-5 m-5">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </center>
+  <% end %>
 <% end %>

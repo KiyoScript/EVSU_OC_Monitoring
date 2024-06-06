@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   }, path: '', path_names: { sign_in: 'admin/sign_in'}
   # Defines the root path route ("/")
 
+  resources :attendances
   resources :employees
   resources :students
   resources :department, except: %i[show]

@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_05_141708) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_05_155709) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendances", force: :cascade do |t|
+    t.string "name"
+    t.datetime "time_in"
+    t.datetime "time_out"
+    t.date "date"
+    t.string "attendable_type", null: false
+    t.bigint "attendable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attendable_type", "attendable_id"], name: "index_attendances_on_attendable"
+  end
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
