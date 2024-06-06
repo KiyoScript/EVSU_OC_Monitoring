@@ -11,6 +11,5 @@ class CreateStudents < ActiveRecord::Migration[7.1]
 
       t.timestamps
     end
-    add_index :students, :rfid, unique: true
   end
 end

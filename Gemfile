@@ -69,3 +69,5 @@ end
 gem 'devise', '~> 4.9'
 gem 'ransack'
 gem 'pagy'
+gem 'csv'
+gem "parallel", "~> 1.24"

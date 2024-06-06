@@ -43,7 +43,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_155709) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["department_id"], name: "index_employees_on_department_id"
-    t.index ["rfid"], name: "index_employees_on_rfid", unique: true
   end
 
   create_table "students", force: :cascade do |t|
@@ -56,7 +55,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_155709) do
     t.integer "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["rfid"], name: "index_students_on_rfid", unique: true
   end
 
   create_table "users", force: :cascade do |t|

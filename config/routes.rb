@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   resources :attendances
   resources :employees
-  resources :students
+  resources :students do
+    collection { post :import }
+  end
   resources :department, except: %i[show]
 
   root 'dashboard#index'

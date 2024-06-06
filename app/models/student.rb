@@ -2,7 +2,6 @@ class Student < ApplicationRecord
   has_many :attendances, as: :attendable
 
   validates :student_id, :last_name, :given_name, :middle_name, :gender, :program, presence: true
-  validates :rfid, uniqueness: true
 
   validate :unique_rfid_across_models
 
@@ -19,7 +18,7 @@ class Student < ApplicationRecord
 
   private
   def unique_rfid_across_models
-    if Employee.exists?(rfid: rfid)
+    if Student.pluck(:rfid).compact_blank!.include?(rfid) || Employee.pluck(:rfid).compact_blank!.include?(rfid)
       errors.add(:rfid, 'has already been taken')
     end
   end

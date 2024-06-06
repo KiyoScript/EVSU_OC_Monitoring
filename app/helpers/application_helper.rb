@@ -2,14 +2,14 @@ module ApplicationHelper
   include Pagy::Frontend
 
   GENDER_BADGE_CLASS = {
-    "female" => "badge text-bg-warning",
-    "male" => "badge text-bg-info"
+    "female" => "badge text-bg-warning text-white",
+    "male" => "badge text-bg-info text-white"
   }.freeze
 
 
   def gender_badge(gender)
     badge_class = GENDER_BADGE_CLASS[gender] || GENDER_BADGE_CLASS["female"]
-    content_tag(:span, gender.capitalize, class: badge_class)
+    content_tag(:span, gender.upcase, class: badge_class)
   end
 
   def notification_container_class

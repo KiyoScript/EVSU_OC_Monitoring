@@ -11,10 +11,24 @@
         <% end %>
       </div>
       <div class="col-10 text-end">
-        <%= link_to new_student_path, class: 'btn btn-success text-white text-center' do %>
-          <i class="fa-duotone fa-octagon-plus text-white"></i>
-          Student
-        <% end %>
+        <div class="w-100 d-flex align-items-center justify-content-end flex-row gap-2">
+          <div class="text-end">
+            <%= form_with url: import_students_path, local: true, multipart: true, class: 'd-flex flex-row align-items-center justify-content-center gap-2' do |form| %>
+              <div class="input-group">
+                <%= form.file_field :file, class: "form-control", id: "inputGroupFile" %>
+              </div>
+              <div class="input-group-append">
+                <%= form.submit "Import", class: "btn btn-primary" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="text-end">
+            <%= link_to new_student_path, class: 'btn btn-success text-white text-center' do %>
+              <i class="fa-duotone fa-octagon-plus text-white"></i>
+              Student
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

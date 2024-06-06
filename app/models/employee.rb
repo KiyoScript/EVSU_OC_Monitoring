@@ -3,9 +3,8 @@ class Employee < ApplicationRecord
   has_many :attendances, as: :attendable
 
   validates :employee_id, :last_name, :given_name, :middle_name, :gender, presence: true
-  validates :rfid, uniqueness: true
 
-  validate :unique_rfid_across_models
+  # validate :unique_rfid_across_models
 
   enum gender: { male: 0, female: 1 }
 
@@ -20,7 +19,7 @@ class Employee < ApplicationRecord
 
   private
   def unique_rfid_across_models
-    if Student.exists?(rfid: rfid)
+    if Student.pluck(:rfid).compact_blank!.include?(rfid) || Employee.pluck(:rfid).compact_blank!.include?(rfid)
       errors.add(:rfid, 'has already been taken')
     end
   end

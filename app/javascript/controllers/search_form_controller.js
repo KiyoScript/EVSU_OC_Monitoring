@@ -1,6 +1,6 @@
-// app/javascript/controllers/search_form_controller.js
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus"
 
+// Connects to data-controller="search-form"
 export default class extends Controller {
   connect() {
     this.element.addEventListener("input", this.handleInput.bind(this));

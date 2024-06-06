@@ -11,6 +11,5 @@ class CreateEmployees < ActiveRecord::Migration[7.1]
 
       t.timestamps
     end
-    add_index :employees, :rfid, unique: true
   end
 end
