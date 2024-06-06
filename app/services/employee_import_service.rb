@@ -14,15 +14,14 @@ class EmployeeImportService
 
   private
 
-
-
   def parallel_import(csv_data)
     Parallel.each(csv_data, in_threads: 4) do |row|
       employee_id = row[0]
 
       next if Employee.where(employee_id: employee_id).exists?
 
-      department = find_or_create_department(row[5])
+      department_name = row[5].strip
+      department = find_or_create_department(department_name)
 
       employee_attributes = {
         employee_id: employee_id,
@@ -38,7 +37,7 @@ class EmployeeImportService
   end
 
   def find_or_create_department(department_name)
-    Department.find_or_create_by(name: department_name)
+    name = department_name.strip.downcase
+    Department.where('LOWER(TRIM(name)) = ?', name).first_or_create(name: department_name.strip)
   end
-
 end
