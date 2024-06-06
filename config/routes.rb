@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
 
   resources :attendances
-  resources :employees
+  resources :employees do
+    collection { post :import }
+  end
   resources :students do
     collection { post :import }
   end

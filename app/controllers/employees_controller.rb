@@ -45,6 +45,23 @@ class EmployeesController < ApplicationController
     end
   end
 
+
+  def import
+    file = params[:file]
+    if file.nil?
+      flash[:error] = "Please upload a CSV file."
+      redirect_to employees_path and return
+    end
+    begin
+      EmployeeImportService.new(file).import
+      redirect_to employees_path, notice: "Employees imported successfully."
+    rescue => e
+      flash[:error] = "#{e.message}"
+      redirect_to employees_path
+    end
+  end
+
+
   private
   def set_employee
     @employee = Employee.find(params[:id])

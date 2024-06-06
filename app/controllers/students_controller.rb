@@ -54,8 +54,13 @@ class StudentsController < ApplicationController
       flash[:error] = "Please upload a CSV file."
       redirect_to students_path and return
     end
-    StudentImportService.new(file).import
-    redirect_to students_path, notice: "Students imported successfully."
+    begin
+      StudentImportService.new(file).import
+      redirect_to students_path, notice: "Students imported successfully."
+    rescue => e
+      flash[:error] = "#{e.message}"
+      redirect_to students_path
+    end
   end
 
   private

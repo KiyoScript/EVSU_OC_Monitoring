@@ -1,5 +1,5 @@
-
-<div class="card my-3 shadow-sm">  <div class="card-header border-0 p-4 d-flex justify-content-between">
+ <div class="card my-3 shadow-sm border-0">
+  <div class="card-header border-0 p-4 d-flex justify-content-between">
     <div class="row w-100">
       <div class="col-2">
         <%= search_form_for @filtered_employees, url: employees_path, class: "d-flex alignitems-center position-relative" do |form| %>
@@ -11,10 +11,24 @@
         <% end %>
       </div>
       <div class="col-10 text-end">
-        <%= link_to new_employee_path, class: 'btn btn-success text-white text-center' do %>
-          <i class="fa-duotone fa-octagon-plus text-white"></i>
-          Employee
-        <% end %>
+        <div class="w-100 d-flex align-items-center justify-content-end flex-row gap-2">
+          <div class="text-end">
+            <%= form_with url: import_employees_path, local: true, multipart: true, class: 'd-flex flex-row align-items-center justify-content-center gap-2' do |form| %>
+              <div class="input-group">
+                <%= form.file_field :file, class: "form-control", id: "inputGroupFile" %>
+              </div>
+              <div class="input-group-append">
+                <%= form.submit "Import", class: "btn btn-primary" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="text-end">
+            <%= link_to new_employee_path, class: 'btn btn-success text-white text-center' do %>
+              <i class="fa-duotone fa-octagon-plus text-white"></i>
+              Employee
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
