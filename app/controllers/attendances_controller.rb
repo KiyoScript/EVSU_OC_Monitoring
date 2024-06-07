@@ -2,7 +2,7 @@ class AttendancesController < ApplicationController
   before_action :set_person, only: %i[show]
   def index
     @filtered_attendances = attendances.ransack(params[:q])
-    @pagy, @attendances = pagy(@filtered_attendances.result.order(created_at: :asc), items: 20)
+    @pagy, @attendances = pagy(@filtered_attendances.result.order(created_at: :desc), items: 15)
   end
 
   def create
