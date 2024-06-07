@@ -19,6 +19,11 @@
 </div>
 
 <div class="mb-3">
+  <label for="middle_name" class="form-label">Email: </label>
+  <%= form.email_field :email, class:'form-control', placeholder: 'youremail@example.com' %>
+</div>
+
+<div class="mb-3">
   <label for="gender" class="form-label">Gender: </label>
   <%= form.select(:gender, Student.genders.map { |g| [g.first.humanize, g.first] }, {}, class: "form-select" ) %>
 </div>

@@ -78,7 +78,8 @@ class StudentsController < ApplicationController
       :given_name,
       :middle_name,
       :gender,
-      :program
-    )
+      :program,
+      :email
+    ).compact_blank!
   end
 end

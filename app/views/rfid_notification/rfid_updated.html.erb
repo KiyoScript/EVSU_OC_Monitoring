@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RFID Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 10px;
+            color: #910203;
+        }
+        .details {
+            margin-top: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            color: #fff !important;
+            background-color: #910203;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>RFID Updated</h1>
+        </div>
+        <p>Dear <%= @user.fullname %>,</p>
+        <p>This is to inform you that your RFID has been successfully updated in our system.</p>
+        <div class="details">
+            <p><strong><%= @user.class.name.capitalize %> Name:</strong> <%= @user.fullname %></p>
+            <p><strong>RFID Number:</strong> <%= @user.rfid %></p>
+            <p><strong>Date of Update:</strong> <%= @user.updated_at %></p>
+        </div>
+        <p>If you did not request this change or if you have any questions or concerns, please contact our support team.</p>
+        <div class="footer">
+            <p>Thank you.</p>
+            <p>Best regards,</p>
+            <p>EASTERN VISAYAS STATE UNIVERSITY - ORMOC CITY CAMPUS<br>
+               <a href="evsuocmonitoring.fly.dev" class="button">Visit our website</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

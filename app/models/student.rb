@@ -1,6 +1,8 @@
 class Student < ApplicationRecord
   has_many :attendances, as: :attendable
   has_one_attached :avatar
+  before_update :set_rfid_confirmation_email
+  after_update :rfid_confirmation_email
   
   validates :student_id, :last_name, :given_name, :middle_name, :gender, :program, presence: true
 
@@ -18,9 +20,20 @@ class Student < ApplicationRecord
 
 
   private
-  def unique_rfid_across_models
-    if Student.pluck(:rfid).compact_blank!.include?(rfid) || Employee.pluck(:rfid).compact_blank!.include?(rfid)
-      errors.add(:rfid, 'has already been taken')
+    def unique_rfid_across_models
+      return unless rfid_changed?
+
+      if Student.find_by(rfid: rfid) || Employee.find_by(rfid: rfid)
+        errors.add(:rfid, 'has already been taken')
+      end
     end
-  end
+
+    def set_rfid_confirmation_email
+      return unless rfid_changed?
+      @rfid_confirmation_email = RfidNotification.rfid_updated(self)
+    end
+
+    def rfid_confirmation_email
+      @rfid_confirmation_email&.deliver_now
+    end
 end

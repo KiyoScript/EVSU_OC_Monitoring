@@ -23,7 +23,8 @@ class StudentImportService
         given_name: row[2],
         middle_name: row[3],
         gender: row[4] == "M" ? 0 : 1,
-        program: row[5]
+        program: row[5],
+        email: row[6]
       }
       Student.create!(student_attributes)
     end

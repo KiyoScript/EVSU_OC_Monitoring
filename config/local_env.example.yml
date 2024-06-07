@@ -1,0 +1,2 @@
+# MAIL_INTERCEPTOR_EMAIL - Emails will be sent here when in a non-production environment
+MAIL_INTERCEPTOR_EMAIL: "youremail@example.com"

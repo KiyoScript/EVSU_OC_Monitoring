@@ -76,7 +76,8 @@ class EmployeesController < ApplicationController
       :given_name,
       :middle_name,
       :gender,
-      :department_id
-    )
+      :department_id,
+      :email
+    ).compact_blank!
   end
 end
