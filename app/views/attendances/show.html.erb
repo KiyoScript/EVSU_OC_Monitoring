@@ -49,7 +49,7 @@
                   <p class="mb-0"><%= @person.respond_to?(:program) ? 'Program' : 'Department' %></p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0"><%= @person.respond_to?(:program) ? @person.program : @person.department %></p>
+                  <p class="text-muted mb-0"><%= @person.respond_to?(:program) ? @person.program : @person.department.name %></p>
                 </div>
               </div>
             </div>

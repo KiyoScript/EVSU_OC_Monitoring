@@ -8,7 +8,7 @@ class EmployeeImportService
 
   def import
     csv_data = CSV.read(@file.path, headers: true, skip_blanks: true, encoding: 'utf-8')
-    csv_data = csv_data.drop(1)
+    csv_data = csv_data.drop(0)
     parallel_import(csv_data)
   end
 

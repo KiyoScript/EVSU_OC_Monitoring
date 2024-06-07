@@ -2,7 +2,7 @@ class Attendance < ApplicationRecord
   belongs_to :attendable, polymorphic: true
 
   def fullname
-    "#{attendable.last_name.capitalize}, #{attendable.given_name.capitalize} #{attendable.middle_name.first.capitalize}"
+    "#{attendable.last_name.capitalize}, #{attendable.given_name.capitalize} #{attendable.middle_name.first.capitalize}."
   end
 
   def department_or_program
