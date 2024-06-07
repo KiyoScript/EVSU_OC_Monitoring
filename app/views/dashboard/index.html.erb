@@ -37,10 +37,10 @@
     <div class="col">
       <div class="card text-center border rounded bg-danger">
         <div class="card-body">
-          <%= link_to '#', class:'text-decoration-none' do %>
+          <%= link_to attendances_path(date: 'current'), class:'text-decoration-none' do %>
             <i class="fa-duotone fa-check-circle fa-2x text-white"></i>
             <p class="mt-2 text-white">Today's Attendance</p>
-            <p class="text-white">1100</p>
+            <p class="text-white"><%= Attendance.where(date: Date.current).count %></p>
           <% end %>
         </div>
       </div>

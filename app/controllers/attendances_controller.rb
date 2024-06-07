@@ -1,7 +1,7 @@
 class AttendancesController < ApplicationController
   before_action :set_person, only: %i[show]
   def index
-    @filtered_attendances = Attendance.ransack(params[:q])
+    @filtered_attendances = attendances.ransack(params[:q])
     @pagy, @attendances = pagy(@filtered_attendances.result.order(created_at: :asc), items: 20)
   end
 
@@ -20,9 +20,15 @@ class AttendancesController < ApplicationController
   end
 
   def show;end
-  private
 
+  private
   def set_person
     @person = Student.find_by(student_id: params[:id]) || Employee.find_by(employee_id: params[:id])
+  end
+
+  def attendances
+    return Attendance.all if params[:date] != 'current'
+
+    Attendance.where(date: Date.current)
   end
 end
