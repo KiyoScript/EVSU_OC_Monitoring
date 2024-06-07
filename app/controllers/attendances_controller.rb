@@ -1,7 +1,8 @@
 class AttendancesController < ApplicationController
+  before_action :set_person, only: %i[show]
   def index
     @filtered_attendances = Attendance.ransack(params[:q])
-    @pagy, @attendances = pagy(@filtered_attendances.result.order(created_at: :asc), items: 10)
+    @pagy, @attendances = pagy(@filtered_attendances.result.order(created_at: :asc), items: 20)
   end
 
   def create
@@ -11,21 +12,17 @@ class AttendancesController < ApplicationController
     else
       result = Attendance.record_attendance(person)
       if result == :time_in
-        redirect_to attendances_path, notice: "Time in successfully"
+        redirect_to attendance_path(person.respond_to?(:student_id) ? person.student_id : person.employee_id), notice: "Time in successfully"
       else
         redirect_to attendances_path, notice: "Time out successfully"
       end
     end
   end
 
+  def show;end
   private
 
-  # def person_information(person)
-  #   {
-  #     identification: person.respond_to?(:student_id) ? person.student_id : person.employee_id,
-  #     name: person.fullname,
-  #     gender: person.gender,
-  #     department_or_program: person.respond_to?(:program) ? person.program : person.person.department.name
-  #   }
-  # end
+  def set_person
+    @person = Student.find_by(student_id: params[:id]) || Employee.find_by(employee_id: params[:id])
+  end
 end
