@@ -1,7 +1,7 @@
 <%= form_with model: @employee, method: :patch, html: { class: 'row'}, data: { controller: 'form' } do |form| %>
   <div class="card pt-2 border-0">
     <div class="card-header">
-      <div class="card-title h2">Edit <%= @employee.last_name %></div>
+      <div class="card-title h2">Edit <%= @employee.last_name.downcase.humanize %></div>
     </div>
     <div class="card-body">
       <%= render partial: 'employee_form', locals: { form: form, employee: @employee, departments: @departments }%>

@@ -17,7 +17,8 @@
               <div class="input-group">
                 <%= form.file_field :file, class: "form-control", id: "inputGroupFile" %>
               </div>
-              <div class="input-group-append">
+              <div class="input-group-append bg-primary d-flex align-items-center justify-content-center rounded">
+                <i class='fa-duotone fa-arrow-right text-white ms-2'></i>
                 <%= form.submit "Import", class: "btn btn-primary" %>
               </div>
             <% end %>
