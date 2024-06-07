@@ -8,9 +8,9 @@
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-body text-center">
-              <img src="<%= asset_path('blank.png') %>" alt="avatar"
-                class="rounded-circle img-fluid" style="width: 150px;">
-              <h5 class="my-3"><%= @person.respond_to?(:student_id) ? 'Student' : 'Employee' %></h5>
+              <img src="<%= avatar(@person) %>" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 200px;">
+              <h5 class="my-3"><%= @person.respond_to?(:student_id) ? 'Student Details' : 'Employee Details' %></h5>
             </div>
           </div>
         </div>

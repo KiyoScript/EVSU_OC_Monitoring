@@ -20,4 +20,12 @@ module ApplicationHelper
     end
     return base_class
   end
+
+  def avatar(user)
+    if user.avatar.attached?
+      rails_blob_url(user.avatar.blob)
+    else
+      asset_path('blank.png')
+    end
+  end
 end

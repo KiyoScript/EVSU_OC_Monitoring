@@ -71,6 +71,7 @@ class EmployeesController < ApplicationController
     params.require(:employee).permit(
       :employee_id,
       :rfid,
+      :avatar,
       :last_name,
       :given_name,
       :middle_name,

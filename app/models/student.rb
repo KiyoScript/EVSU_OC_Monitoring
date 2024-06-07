@@ -1,6 +1,7 @@
 class Student < ApplicationRecord
   has_many :attendances, as: :attendable
-
+  has_one_attached :avatar
+  
   validates :student_id, :last_name, :given_name, :middle_name, :gender, :program, presence: true
 
   validate :unique_rfid_across_models

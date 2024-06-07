@@ -1,10 +1,11 @@
 class Employee < ApplicationRecord
   belongs_to :department
   has_many :attendances, as: :attendable
+  has_one_attached :avatar
 
   validates :employee_id, :last_name, :given_name, :middle_name, :gender, presence: true
 
-  # validate :unique_rfid_across_models
+  validate :unique_rfid_across_models
 
   enum gender: { male: 0, female: 1 }
 

@@ -71,3 +71,4 @@ gem 'ransack'
 gem 'pagy'
 gem 'csv'
 gem "parallel", "~> 1.24"
+gem "image_processing", ">= 1.2"

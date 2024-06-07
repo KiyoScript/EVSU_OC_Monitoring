@@ -1,9 +1,17 @@
-<%= form_with model: @employee, method: :patch, html: { class: 'row'}, data: { controller: 'form' } do |form| %>
+<%= form_with model: @employee, method: :patch, html: { class: 'row'}, data: { controller: 'form update-avatar' } do |form| %>
   <div class="card pt-2 border-0">
     <div class="card-header">
       <div class="card-title h2">Edit <%= @employee.last_name.downcase.humanize %></div>
     </div>
     <div class="card-body">
+      <div class="mb-3 w-100 d-flex align-items-center justify-content-center flex-column gap-2">
+        <h2 class="form-label">Profile</h2>
+        <img src="<%= avatar(@employee) %>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+        <a role="button" class="btn btn-primary btn-sm" data-coreui-toggle="modal" data-coreui-target="#updateAvatarModal" >
+          <i class="fa-duotone fa-edit"></i>Edit
+        </a>
+      </div>
+      <%= render partial: 'avatar_modal', locals: { form: form }%>
       <%= render partial: 'employee_form', locals: { form: form, employee: @employee, departments: @departments }%>
     </div>
     <div class="card-footer d-flex align-items-center justify-content-between border-0 mt-5">

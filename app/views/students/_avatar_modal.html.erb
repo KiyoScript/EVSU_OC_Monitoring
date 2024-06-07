@@ -1,0 +1,20 @@
+<div class="modal fade avatar-updates-container" id="updateAvatarModal" style="z-index:999999;" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="updateAvatarModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="updateAvatarModalLabel">Update Avatar</h1>
+        <button type="button" class="btn-close" data-coreui-dismiss="modal" data-action="click->update-avatar#clearAvatarForm" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="avatar-wrapper" data-update-avatar-target="avatarWrapper" >
+        </div>
+        <br>
+        <%= form.file_field :avatar, class: "form-control form-control-solid", data: { action: "input->update-avatar#loadImage" }, id: "avatarImageInput" %>
+      </div>
+      <div class="modal-footer">
+        <button id="avatar-updates-form-close-btn" type="button" data-action="click->update-avatar#clearAvatarForm" class="btn btn-secondary btn-sm" data-coreui-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-sm" data-update-avatar-target="updateAvatarButton" data-action="click->update-avatar#updateAvatar" disabled>Update</button>
+      </div>
+    </div>
+  </div>
+</div>

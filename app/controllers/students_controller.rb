@@ -73,6 +73,7 @@ class StudentsController < ApplicationController
     params.require(:student).permit(
       :student_id,
       :rfid,
+      :avatar,
       :last_name,
       :given_name,
       :middle_name,
