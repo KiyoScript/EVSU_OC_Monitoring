@@ -80,5 +80,7 @@ test:
 production:
   <<: *default
   database: evsu_oc_monitoring_production
-  username: evsu_oc_monitoring
-  password: <%= ENV["EVSU_OC_MONITORING_DATABASE_PASSWORD"] %>
+  username: <%= Rails.application.credentials.database.user %>
+  password: <%= Rails.application.credentials.database.password %>
+  port: <%= Rails.application.credentials.database.port %>
+  host: <%= Rails.application.credentials.database.host %>
