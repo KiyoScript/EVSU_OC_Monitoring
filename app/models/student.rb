@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-  has_many :attendances, as: :attendable
+  has_many :attendances, as: :attendable, dependent: :destroy
   has_one_attached :avatar
   before_update :set_rfid_confirmation_email
   after_update :rfid_confirmation_email
