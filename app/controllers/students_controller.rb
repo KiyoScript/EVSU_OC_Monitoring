@@ -79,7 +79,8 @@ class StudentsController < ApplicationController
       :middle_name,
       :gender,
       :program,
-      :email
+      :email,
+      :guardian_email
     ).compact_blank!
   end
 end

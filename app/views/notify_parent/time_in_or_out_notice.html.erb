@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RFID Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 10px;
+            color: #910203;
+        }
+        .details {
+            margin-top: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            color: #fff !important;
+            background-color: #910203;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Student Timein/Timeout Notice</h1>
+        </div>
+        <p>This email has been sent to inform you that <%= @user.fullname %> has <%= @action %> from our system.</p>
+        <div class="details">
+            <p><strong>Log in:</strong> <%= @attendance.time_in&.strftime("%-l:%M %p") || "--" %></p>
+            <p><strong>Log out:</strong> <%= @attendance.time_out&.strftime("%-l:%M %p") || "--" %></p>
+        </div>
+        <br>
+        <div class="footer">
+            <p>Thank you.</p>
+            <p>Best regards,</p>
+            <p>EASTERN VISAYAS STATE UNIVERSITY - ORMOC CITY CAMPUS<br>
+               <a href="evsu-oc-monitoring.fly.dev" class="button">Visit our website</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
