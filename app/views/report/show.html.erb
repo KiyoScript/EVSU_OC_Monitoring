@@ -1,0 +1,40 @@
+<div data-controller="report-printer">
+  <div class="d-flex">
+    <button id="printBtn" class="ms-auto btn btn-success text-light btn-sm m-4" data-action="click->report-printer#print">Print</button>
+  </div>
+
+  <div class="row g-0 w-100">
+    <div class="col-2 text-center">
+      <img class="img-fluid" src="<%= asset_path("evsu-logo.png") %>" width="100" />
+    </div>
+    <div class="col-8 px-5 text-center">
+      <p class="fw-bold m-0 p-0">EASTERN VISAYAS STATE UNIVERSITY</p>
+      <p class="m-0 p-0">Ormoc Campus</p>
+      <p class="text-center m-0 p-0">Ormoc City</p>
+    </div>
+    <div class="col-2">
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <table class="w-100">
+    <thead>
+      <tr>
+        <td colspan=9999 class="border text-center fw-bold">Attendances <%= params[:range].capitalize %> Report</td>
+      </tr>
+      <tr>
+        <th scope="col" class="border p-1">Name</th>
+        <th scope="col" class="border p-1">Department/Program</th>
+        <th scope="col" class="border p-1">Employee/Student</th>
+        <th scope="col" class="border p-1">Time In</th>
+        <th scope="col" class="border p-1">Time Out</th>
+        <th scope="col" class="border p-1">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "report/attendance", collection: @attendances, as: :attendance %>
+    </tbody>
+  </table>
+</div>

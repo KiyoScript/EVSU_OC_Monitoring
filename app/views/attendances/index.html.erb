@@ -23,7 +23,18 @@
           %>
           <%= form.submit "Search", class: "ms-2 btn btn-sm btn-primary " %>
         <% end %>
-
+        </div>
+        <div class="col-10 text-end">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
+                Generate Report
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/report/daily" data-turbo-frame="_top">Daily</a></li>
+                <li><a class="dropdown-item" href="/report/weekly" data-turbo-frame="_top">Weekly</a></li>
+                <li><a class="dropdown-item" href="/report/monthly" data-turbo-frame="_top">Monthly</a></li>
+              </ul>
+            </div>
         </div>
       </div>
     </div>

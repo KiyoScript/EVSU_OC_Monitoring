@@ -1,0 +1,8 @@
+<tr>
+  <td class="border p-1"><%= attendance.fullname %></td>
+  <td class="border p-1"><%= attendance.department_or_program %></td>
+  <td class="border p-1"><%= attendance.attendable_type %></td>
+  <td class="border p-1"><%= attendance.time_in.strftime('%I:%M %p')%></td>
+  <td class="border p-1"><%= attendance.time_out&.strftime('%I:%M %p')%></td>
+  <td class="border p-1"><%= attendance.date.strftime('%B %e, %Y') %></td>
+</tr>

@@ -14,7 +14,7 @@ class AttendancesController < ApplicationController
       if result == :time_in
         redirect_to attendance_path(person.respond_to?(:student_id) ? person.student_id : person.employee_id), notice: "Time in successfully"
       else
-        redirect_to attendances_path, notice: "Time out successfully"
+        redirect_to attendance_path(person.respond_to?(:student_id) ? person.student_id : person.employee_id), notice: "Time out successfully"
       end
     end
   end
