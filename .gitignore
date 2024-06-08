@@ -36,3 +36,4 @@
 .byebug_history
 dfsd
 /config/local_env.yml
+/config/master.key

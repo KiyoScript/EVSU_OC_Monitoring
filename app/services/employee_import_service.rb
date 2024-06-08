@@ -29,9 +29,9 @@ class EmployeeImportService
         given_name: row[2],
         middle_name: row[3],
         gender: row[4] == "M" ? 0 : 1,
-        department: department
+        department: department,
+        email: row[6]
       }
-
       Employee.create!(employee_attributes)
     end
   end
