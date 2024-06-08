@@ -80,7 +80,7 @@ test:
 production:
   <<: *default
   database: evsu_oc_monitoring_production
-  username: <%= Rails.application.credentials.database.user %>
-  password: <%= Rails.application.credentials.database.password %>
-  port: <%= Rails.application.credentials.database.port %>
-  host: <%= Rails.application.credentials.database.host %>
+  username: <%= Rails.application.credentials.dig(:database, :user) %>
+  password: <%= Rails.application.credentials.dig(:database, :password) %>
+  port: <%= Rails.application.credentials.dig(:database, :port) %>
+  host: <%= Rails.application.credentials.dig(:database, :host) %>
