@@ -1,7 +1,7 @@
 
 <%= turbo_frame_tag :attendance_frame, src: attendances_path %>
 <div class="position-absolute start-0 top-0 bottom-0 w-100 bg-secondary d-flex align-items-center justify-content-center flex-column bg-opacity-50"
-      style="backdrop-filter: blur(3px);z-index: 9999;">
+      style="backdrop-filter: blur(3px);z-index: 9999;" data-controller="redirect-back">
   <section style="background-color: #eee;">
     <div class="container p-2 border" style='width: 30rem'>
       <div class="row">
@@ -54,11 +54,6 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-12">
-          <%= link_to attendances_path, class: "btn btn-primary w-100" do %>
-            Confirm
-          <% end %>
         </div>
       </div>
     </div>
