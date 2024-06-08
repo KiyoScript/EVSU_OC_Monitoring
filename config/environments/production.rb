@@ -85,7 +85,7 @@ Rails.application.configure do
     port:                         587,
     domain:                       Rails.application.credentials.dig(:gmail, :domain),
     user_name:                    Rails.application.credentials.dig(:gmail, :user_name),
-    password:                     Rails.application.credentials.dig(:gmai, :password),
+    password:                     Rails.application.credentials.dig(:gmail, :password),
     authentication:               'plain',
     enable_starttls_auto:         true
   }
