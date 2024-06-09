@@ -72,5 +72,5 @@ gem 'pagy'
 gem 'csv'
 gem "parallel", "~> 1.24"
 gem "image_processing", ">= 1.2"
-
+gem 'pundit', '~> 2.3'
 gem "dockerfile-rails", ">= 1.6", :group => :development
