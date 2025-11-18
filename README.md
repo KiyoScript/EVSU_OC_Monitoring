@@ -1,4 +1,14 @@
 ## Instruction 📝
+
+### Demonstration
+<img width="1429" height="850" alt="image" src="https://github.com/user-attachments/assets/6adf8e9e-0342-464c-9574-78b57cc476de" />
+<img width="1435" height="853" alt="image" src="https://github.com/user-attachments/assets/1f640c8b-d6c6-4d02-908f-49cdd0fedb00" />
+<img width="1435" height="851" alt="image" src="https://github.com/user-attachments/assets/1f340cb7-fa03-4e07-9139-8a4a0737eeb1" />
+<img width="1433" height="851" alt="image" src="https://github.com/user-attachments/assets/053f0897-1536-4da8-a0e5-7ec84fa1ed9c" />
+<img width="1435" height="854" alt="image" src="https://github.com/user-attachments/assets/10b87587-b50d-4832-9efd-5ec6711ad8d5" />
+<img width="1428" height="848" alt="image" src="https://github.com/user-attachments/assets/10992acd-c2fe-4b65-8d73-8e040d9876ef" />
+
+
 ### How to run this app to your Local?
 
 1. Install Ruby:
